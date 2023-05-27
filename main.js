@@ -20,10 +20,11 @@ document.getElementById("secondsInput").addEventListener("submit", function(even
     event.preventDefault();
 
     // Get known values from the form
+    let seconds = Number(event.target.seconds.value);
+    if (seconds === 0) return; // If the user enters 0, do nothing
     const excludeDays = event.target.days.checked;
     const target = document.querySelector(".result");
-    let seconds = Number(event.target.seconds.value);
-    let resultStr = '<h4 class="text-primary">';
+    let resultStr = '<h4 class="result-text">';
 
     // Calculate the appropriate number of days, hours, minutes, and seconds
     const days = Math.floor(seconds / 86400);
@@ -34,7 +35,7 @@ document.getElementById("secondsInput").addEventListener("submit", function(even
     seconds %= 60;
     seconds = Math.floor(seconds);
 
-    // Build the result string with the necessary values
+    // Build the result string with the non-zero values
     if (!excludeDays && days > 0) resultStr += `${days}d `; // Days
     if (hours > 0) resultStr += `${hours}h `; // Hours
     if (minutes > 0) resultStr += `${minutes}m `; // Minutes
