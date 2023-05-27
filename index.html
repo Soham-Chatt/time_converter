@@ -20,27 +20,45 @@
             <!-- Input form -->
             <form id="timeInput" class="mb-5">
                 <div class="row">
+                    <!-- Days -->
+                    <div class="col-md-3 mb-3">
+                        <label for="days" class="form-label">Days:</label>
+                        <input type="number" min="0" id="days" class="form-control" placeholder="Enter days...">
+                    </div>
                     <!-- Hours -->
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-3 mb-3">
                         <label for="hours" class="form-label">Hours:</label>
-                        <input type="number" id="hours" class="form-control" placeholder="Enter hours here...">
+                        <input type="number" min="0" id="hours" class="form-control" placeholder="Enter hours...">
                     </div>
                     <!-- Minutes -->
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-3 mb-3">
                         <label for="minutes" class="form-label">Minutes:</label>
-                        <input type="number" id="minutes" class="form-control" placeholder="Enter minutes here...">
+                        <input type="number" min="0" id="minutes" class="form-control" placeholder="Enter minutes...">
                     </div>
                     <!-- Seconds -->
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-3 mb-3">
                         <label for="seconds" class="form-label">Seconds:</label>
-                        <input type="number" id="seconds" class="form-control" placeholder="Enter seconds here...">
+                        <input type="number" min="0" id="seconds" class="form-control" placeholder="Enter seconds...">
                     </div>
-                </div>
+                </div> <!-- Row -->
+
+                <div class="row">
+                    <!-- Years -->
+                    <div class="col-md-6 mb-3">
+                        <label for="years" class="form-label">Years:</label>
+                        <input type="number" min="0" id="years" class="form-control" placeholder="Enter years...">
+                    </div>
+                    <!-- Months -->
+                    <div class="col-md-6 mb-3">
+                        <label for="months" class="form-label">Months:</label>
+                        <input type="number" min="0" id="months" class="form-control" placeholder="Enter months...">
+                    </div>
+                </div> <!-- Row -->
 
                 <!-- Exclude days -->
                 <div class="form-check mb-3">
-                    <input class="form-check-input" type="checkbox" id="days">
-                    <label class="form-check-label" for="days">Exclude days</label>
+                    <input class="form-check-input" type="checkbox" id="excludeDays">
+                    <label class="form-check-label" for="excludeDays">Exclude days in the result</label>
                 </div>
 
                 <!-- Submit button -->
