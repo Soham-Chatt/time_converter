@@ -46,3 +46,11 @@
     background-color: rgba(0,0,0,0.6);
     border: 2px solid #007bff;
 }
+
+/* If the viewport width is less than 403 pixels, the clock should be centered */
+@media screen and (max-width: 403px) {
+    .clock {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
