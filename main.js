@@ -20,13 +20,11 @@ document.getElementById("timeInput").addEventListener("submit", function(event) 
     event.preventDefault();
 
     // Get form values
-    let years = Number(event.target.years.value);
-    let months = Number(event.target.months.value);
     let days = Number(event.target.days.value);
     let hours = Number(event.target.hours.value);
     let minutes = Number(event.target.minutes.value);
     let seconds = Number(event.target.seconds.value);
-    seconds += (minutes * 60) + (hours * 3600) + (days * 86400) + (months * 2592000) + (years * 31536000);
+    seconds += (days * 86400) + (hours * 3600) + (minutes * 60); // Convert all values to seconds
     if (seconds === 0) return; // If the user entered 0, don't do anything
     const excludeDays = event.target.excludeDays.checked;
 
@@ -35,10 +33,6 @@ document.getElementById("timeInput").addEventListener("submit", function(event) 
     let resultStr = '<h4 class="result-text">';
 
     // Calculate the appropriate number of days, hours, minutes, and seconds
-    years = Math.floor(seconds / 31536000);
-    seconds %= 31536000;
-    months = Math.floor(seconds / 2592000);
-    seconds %= 2592000;
     days = Math.floor(seconds / 86400);
     seconds %= 86400;
     hours = excludeDays ? Math.floor((days * 24) + seconds / 3600) : Math.floor(seconds / 3600);
@@ -48,8 +42,6 @@ document.getElementById("timeInput").addEventListener("submit", function(event) 
     seconds = Math.floor(seconds);
 
     // Build the result string with the non-zero values
-    if (years > 0) resultStr += `${years}y `; // Years
-    if (months > 0) resultStr += `${months}mo `; // Months
     if (!excludeDays && days > 0) resultStr += `${days}d `; // Days
     if (hours > 0) resultStr += `${hours}h `; // Hours
     if (minutes > 0) resultStr += `${minutes}m `; // Minutes
