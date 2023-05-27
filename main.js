@@ -1,5 +1,11 @@
 // main.js
 
+// Function to clear all input values on page load
+window.onload = function() {
+    document.getElementById("secondsInput").reset();
+}
+
+// Function to convert seconds to days, hours, minutes, and seconds
 document.getElementById("secondsInput").addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -21,3 +27,18 @@ document.getElementById("secondsInput").addEventListener("submit", function(even
     }
 
 });
+
+// Function to get the current time and display it on the page every second
+function displayTime() {
+    const clock = document.querySelector(".clock");
+    const time = new Date().toLocaleTimeString();
+    clock.innerHTML = `<h4 class="clock">${time}</h4>`;
+}
+
+// Call the displayTime function initially to show the time immediately
+displayTime();
+
+// Call the displayTime function every second using setInterval
+setInterval(displayTime, 1000);
+
+
